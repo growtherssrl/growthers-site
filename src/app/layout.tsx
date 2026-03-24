@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import Providers from "@/components/layout/Providers";
 import "./globals.css";
 
@@ -52,11 +50,9 @@ export default function RootLayout({
       lang="it"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="min-h-screen flex flex-col bg-[#050505] text-[#f5f2ef]">
+      <body suppressHydrationWarning className="min-h-screen flex flex-col bg-[#050505] text-[#f5f2ef]">
         <Providers>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          {children}
         </Providers>
       </body>
     </html>

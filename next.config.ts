@@ -1,11 +1,13 @@
 import type { NextConfig } from "next";
 
+const isPagesExport = process.env.GITHUB_PAGES === "true";
+
 const nextConfig: NextConfig = {
-  output: "export",
+  ...(isPagesExport ? { output: "export" } : {}),
   images: {
     unoptimized: true,
   },
-  basePath: process.env.GITHUB_PAGES === "true" ? "/growthers-site" : "",
+  basePath: isPagesExport ? "/growthers-site" : "",
 };
 
 export default nextConfig;
